@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+    <link href="style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="left-nav">
+
+        <a href="http://www.nj.gov/nj/home/features/spotlight/hurricane_sandy.shtml"> <img src="njlogo.jpg" class="logoNJ"> </a>
+        <div class="click-between-info-box">
+            Click between the two options to compare which counties contributed the most value in volunteer hours or how many organizations each county received aid from. 
+            <br><br> 
+            --
+            <br><br>
+            Data for Hurricane Sandy Relief 
+            <br> 
+            -- New Jersey, 2013 --
+        </div>
+        <div id="vol-btn" class="btn-blue" href="/add-disaster"> Value of Volunteer Hours </div>
+        <div id="org-btn" class="btn-blue" href="/add-disaster"> Number of Organizations </div>
+        <div class="powered-by">powered by</div>
+        <a href="http://www.sparkrelief.org"> <img id="spark-logo" src="sparkoff.png" class="logo"> </a>
+
+        
+        
+    </div>
+
+	<div class = "graph-container1">
+
+    	<iframe class="graph1" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col0%3E%3E0+from+1Q71uDIecC9Ow3OTVnH9vO7pjca_xd9PVz9WcTdw&amp;viz=MAP&amp;h=false&amp;lat=40.229461685471485&amp;lng=-74.40839217288749&amp;t=1&amp;z=8&amp;l=col0%3E%3E0&amp;y=2&amp;tmplt=2&amp;hml=KML">
+        </iframe>
+
+    </div>
+
+    <div class="total" id="t1">
+        Total: $26,850,968
+    </div>
+
+    <div class="total" id="t2" style="display:none">
+        Total: 585 Organizations
+    </div>
+
+
+    <script>
+
+    $(document).ready(function() {
+
+
+        $("#vol-btn").click(function(){
+
+            $(".graph1").attr("src","https://www.google.com/fusiontables/embedviz?q=select+col0%3E%3E0+from+1Q71uDIecC9Ow3OTVnH9vO7pjca_xd9PVz9WcTdw&viz=MAP&h=false&lat=40.229461685471485&lng=-74.40839217288749&t=1&z=8&l=col0%3E%3E0&y=2&tmplt=2&hml=KML");
+
+            
+            $("#t2").hide(300);
+            $("#t1").show(300);
+            
+        });
+
+        $("#org-btn").click(function(){
+            
+            $(".graph1").attr("src", "https://www.google.com/fusiontables/embedviz?q=select+col0%3E%3E0+from+1Q71uDIecC9Ow3OTVnH9vO7pjca_xd9PVz9WcTdw&viz=MAP&h=false&lat=40.229461685471485&lng=-74.40839217288749&t=1&z=8&l=col0%3E%3E0&y=3&tmplt=3&hml=KML");
+
+            $("#t1").hide(300);
+            $("#t2").show(300);
+           
+        });
+
+        $("#spark-logo").mouseenter(function(){
+           $(".logo").attr("src","sparkon.png");
+        })
+
+        $("#spark-logo").mouseout(function(){
+           $(".logo").attr("src","sparkoff.png");
+        })
+
+
+    })
+
+    </script>    
+
+</body>
+
+<footer>
+   
+</footer>
+
+</html>
